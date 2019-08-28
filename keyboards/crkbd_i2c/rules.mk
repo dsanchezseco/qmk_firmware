@@ -39,6 +39,8 @@ RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 MIDI_ENABLE = no            # MIDI support (+2400 to 4200, depending on config)
 UNICODE_ENABLE = no         # Unicode
 
+RGB_MATRIX_ENABLE = no      # enable the matrix RGB(per key leds)
+
 SPLIT_KEYBOARD = yes
 
 # OLED CONFIGURATION
