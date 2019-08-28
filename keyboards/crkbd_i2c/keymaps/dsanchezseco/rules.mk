@@ -7,5 +7,7 @@ OLED_DRIVER_ENABLE = yes
 # enable media keys
 EXTRAKEY_ENABLE = yes
 
+RGB_MATRIX_ENABLE = WS2812
+
 # using elite-c controllers
 BOOTLOADER = qmk-dfu
