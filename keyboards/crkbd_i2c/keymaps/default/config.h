@@ -17,4 +17,14 @@
 #pragma once
 
 // place overrides here
+
+// The left half is the one that connects to the computer§
 #define MASTER_LEFT
+//#define MASTER_RIGHT
+// Both halves can be connected to the computer
+// but both must be flashed using dfu-split-left or df-split-right
+//#define EE_HANDS
+
+#define TAPPING_FORCE_HOLD
+// Time to consider a "tap" a "hold" instead
+#define TAPPING_TERM 200
