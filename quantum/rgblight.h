@@ -61,6 +61,7 @@
 |       34        | RGBLIGHT_MODE_STATIC_GRADIENT + 9 |
 |       35        | RGBLIGHT_MODE_RGB_TEST            |
 |       36        | RGBLIGHT_MODE_ALTERNATING         |
+|       37        | RGBLIGHT_MODE_POLICE              |
 |-----------------|-----------------------------------|
  *****/
 
@@ -307,6 +308,7 @@ void rgblight_effect_knight(animation_status_t *anim);
 void rgblight_effect_christmas(animation_status_t *anim);
 void rgblight_effect_rgbtest(animation_status_t *anim);
 void rgblight_effect_alternating(animation_status_t *anim);
+void rgblight_effect_police(animation_status_t *anim);
 
 #    endif
 

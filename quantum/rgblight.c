@@ -796,6 +796,12 @@ void rgblight_task(void) {
             effect_func   = (effect_func_t)rgblight_effect_alternating;
         }
 #    endif
+#    ifdef RGBLIGHT_EFFECT_POLICE
+        else if (rgblight_status.base_mode == RGBLIGHT_MODE_POLICE) {
+            interval_time = 500;
+            effect_func   = (effect_func_t)rgblight_effect_police;
+        }
+#    endif
         if (animation_status.restart) {
             animation_status.restart    = false;
             animation_status.last_timer = timer_read() - interval_time - 1;
@@ -1068,6 +1074,23 @@ void rgblight_effect_alternating(animation_status_t *anim) {
             sethsv(rgblight_config.hue, rgblight_config.sat, rgblight_config.val, ledp);
         } else if (i >= effect_num_leds / 2 && !anim->pos) {
             sethsv(rgblight_config.hue, rgblight_config.sat, rgblight_config.val, ledp);
+        } else {
+            sethsv(rgblight_config.hue, rgblight_config.sat, 0, ledp);
+        }
+    }
+    rgblight_set();
+    anim->pos = (anim->pos + 1) % 2;
+}
+#endif
+
+#ifdef RGBLIGHT_EFFECT_POLICE
+void rgblight_effect_police(animation_status_t *anim) {
+    for (int i = 0; i < effect_num_leds; i++) {
+        LED_TYPE *ledp = led + i + effect_start_pos;
+        if (i < effect_num_leds / 2 && anim->pos) {
+            sethsv(170, rgblight_config.sat, rgblight_config.val, ledp);
+        } else if (i >= effect_num_leds / 2 && !anim->pos) {
+            sethsv(0, rgblight_config.sat, rgblight_config.val, ledp);
         } else {
             sethsv(rgblight_config.hue, rgblight_config.sat, 0, ledp);
         }
